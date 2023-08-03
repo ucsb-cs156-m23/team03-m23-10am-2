@@ -1,15 +1,13 @@
-# STARTER-team03
+# team03-m23-10am-2
 
 Instructions: <https://ucsb-cs156.github.io/m23/lab/team03.html>
-
-TODO: change heading above to your repo name, e.g. `# team03-m23-9am-4`
 
 TODO: Add a link to the deployed Dokku app for your team here, e.g.
 
 Deployments:
 
-* Prod: <https://team03.dokku-17.cs.ucsb.edu>
-* QA: <https://team03-qa.dokku-17.cs.ucsb.edu>
+* Prod: <https://team03.dokku-05.cs.ucsb.edu>
+* QA: <https://team03-qa.dokku-05.cs.ucsb.edu>
 
 TODO: Fill in this table with correct information.  Don't delete rows that
 aren't being completed (due to having only 4 or 5 team members); instead
@@ -18,7 +16,7 @@ put `(no one)` under name and leave Github Id blank.
 | Table                     | Name         | Github Id |
 |---------------------------|--------------|-----------|
 | UCSBDiningCommonsMenuItem |              |           |
-| UCSBOrganization          |              |           |
+| UCSBOrganization          | Joshua Zhou  |  jczhou02 |
 | RecommendationRequest     |              |           |
 | MenuItemReview            |              |           |
 | HelpRequest               |              |           |
