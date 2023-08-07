@@ -325,7 +325,7 @@ public class UCSBOrganizationControllerTests extends ControllerTestCase{
         verify(ucsbOrganizationRepository, times(1)).delete(any());
 
         Map<String, Object> json = responseToJson(response);
-        assertEquals("record 1 deleted", json.get("message"));
+        assertEquals("UCSBOrganization with id 1 deleted", json.get("message"));
     }
 
 
