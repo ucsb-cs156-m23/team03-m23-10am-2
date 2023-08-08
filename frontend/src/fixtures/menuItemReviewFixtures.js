@@ -11,10 +11,10 @@ const menuItemReviewsFixtures = {
         {
             id: 1, 
             itemId: 3, 
-            reviewerEmail: "john@gmail.com",
+            reviewerEmail: "cyrus895@ucsb.edu",
             stars: 5,
             dateReviewed: "2022-01-02T12:00:00",
-            comments: "absolutely delicious",
+            comments: "Best food I've ever tasted. Marvelous",
         },
         {
             id: 2, 
