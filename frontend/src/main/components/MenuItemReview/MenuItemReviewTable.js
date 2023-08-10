@@ -54,10 +54,10 @@ export default function MenuItemReviewTable({ menuItemReviews, currentUser }) {
         },
     ];
 
-    if (hasRole(currentUser, "ROLE_ADMIN")) {
-        columns.push(ButtonColumn("Edit", "primary", editCallback, "MenuItemReviewTable"));
-        columns.push(ButtonColumn("Delete", "danger", deleteCallback, "MenuItemReviewTable"));
-    } 
+    // if (hasRole(currentUser, "ROLE_ADMIN")) {
+    //     columns.push(ButtonColumn("Edit", "primary", editCallback, "MenuItemReviewTable"));
+    //     columns.push(ButtonColumn("Delete", "danger", deleteCallback, "MenuItemReviewTable"));
+    // } 
 
     return <OurTable
         data={menuItemReviews}
