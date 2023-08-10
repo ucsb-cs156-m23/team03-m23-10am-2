@@ -1,4 +1,4 @@
-import { Button, Form, Row, Col } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 
@@ -28,9 +28,6 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
     return (
 
         <Form onSubmit={handleSubmit(submitAction)}>
-
-
-            
 
                 {initialContents && (
                     
@@ -81,13 +78,6 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                         </Form.Control.Feedback>
                     </Form.Group>
                 
-            
-
-            
-
-                
-
-
 
                     <Form.Group className="mb-3" >
                         <Form.Label htmlFor="stars">Stars</Form.Label>
@@ -105,13 +95,6 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                         </Form.Control.Feedback>
                     </Form.Group>
                 
-            
-
-            
-            
-
-                
-
 
 
                     <Form.Group className="mb-3" >
@@ -131,8 +114,6 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                     </Form.Group>
                 
             
-            
-            
 
                 
                 <Form.Group className="mb-3" >
@@ -148,11 +129,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             {errors.dateReviewed && 'datereviewed is required. '}
                         </Form.Control.Feedback>
                     </Form.Group>
-                
-            
-
-
-            
+ 
                 
                     <Button
                         type="submit"
@@ -166,8 +143,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                         data-testid="MenuItemReviewForm-cancel"
                     >
                         Cancel
-                    </Button>
-                
+                    </Button>    
             
         </Form>
 
