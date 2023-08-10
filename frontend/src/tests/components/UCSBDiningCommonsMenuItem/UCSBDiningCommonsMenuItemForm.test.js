@@ -13,7 +13,6 @@ jest.mock('react-router-dom', () => ({
 }));
 
 
-
 describe("UCSBDiningCommonsMenuItemForm tests", () => {
     const queryClient = new QueryClient();
 
@@ -68,6 +67,20 @@ describe("UCSBDiningCommonsMenuItemForm tests", () => {
 
         await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith(-1));
     });
+
+    test("TODO: testing id-prefix-submit mutation error", async () => {
+        render(
+            <QueryClientProvider client={queryClient}>
+                <Router>
+                    <UCSBDiningCommonsMenuItemForm />
+                </Router>
+            </QueryClientProvider>
+        );
+        expect(await screen.findByTestId(`${testId}-submit`)).toBeInTheDocument();
+    
+    });
+
+    
 
     test("that the correct validations are performed", async () => {
         render(
