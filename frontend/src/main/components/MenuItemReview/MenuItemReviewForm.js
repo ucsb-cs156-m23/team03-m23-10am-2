@@ -1,6 +1,6 @@
 import { Button, Form, Row, Col } from 'react-bootstrap';
 import { useForm } from 'react-hook-form'
-//import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Create" }) {
 
@@ -14,7 +14,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
     );
     // Stryker restore all
 
-  //  const navigate = useNavigate();
+    const navigate = useNavigate();
 
     // For explanation, see: https://stackoverflow.com/questions/3143070/javascript-regex-iso-datetime
     // Note that even this complex regex may still need some tweaks
@@ -30,10 +30,10 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
         <Form onSubmit={handleSubmit(submitAction)}>
 
 
-            <Row>
+            
 
                 {initialContents && (
-                    <Col>
+                    
                         <Form.Group className="mb-3" >
                             <Form.Label htmlFor="id">Id</Form.Label>
                             <Form.Control
@@ -45,10 +45,10 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                                 disabled
                             />
                         </Form.Group>
-                    </Col>
+                    
                 )}
 
-                <Col>
+                
                     <Form.Group className="mb-3" >
                         <Form.Label htmlFor="itemId">item ID</Form.Label>
                         <Form.Control
@@ -63,8 +63,8 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             {errors.itemId?.type === 'pattern' && 'ItemId must be in the format of a number, e.g. 1,2,3..'}
                         </Form.Control.Feedback>
                     </Form.Group>
-                </Col>
-                <Col>
+                
+                
                     <Form.Group className="mb-3" >
                         <Form.Label htmlFor="reviewerEmail">Reviewer Email</Form.Label>
                         <Form.Control
@@ -80,12 +80,12 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             {errors.reviewerEmail && 'Reviewer Email is required.'}
                         </Form.Control.Feedback>
                     </Form.Group>
-                </Col>
-            </Row>
+                
+            
 
-            <Row>
+            
 
-                <Col>
+                
 
 
 
@@ -104,13 +104,13 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             {errors.stars?.message}
                         </Form.Control.Feedback>
                     </Form.Group>
-                </Col>
-            </Row>
+                
+            
 
             
-            <Row>
+            
 
-                <Col>
+                
 
 
 
@@ -129,14 +129,14 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             {errors.comments?.message}
                         </Form.Control.Feedback>
                     </Form.Group>
-                </Col>
-            </Row>
+                
             
-            <Row>
+            
+            
 
-                <Col>
+                
                 <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="dateReviewed">Date (iso format)</Form.Label>
+                        <Form.Label htmlFor="dateReviewed">Date Reviewed)</Form.Label>
                         <Form.Control
                             data-testid="MenuItemReviewForm-dateReviewed"
                             id="dateReviewed"
@@ -148,12 +148,12 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             {errors.dateReviewed && 'datereviewed is required. '}
                         </Form.Control.Feedback>
                     </Form.Group>
-                </Col>
-            </Row>
+                
+            
 
 
-            <Row>
-                <Col>
+            
+                
                     <Button
                         type="submit"
                         data-testid="MenuItemReviewForm-submit"
@@ -162,13 +162,13 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                     </Button>
                     <Button
                         variant="Secondary"
-                       // onClick={() => navigate(-1)}
+                         onClick={() => navigate(-1)}
                         data-testid="MenuItemReviewForm-cancel"
                     >
                         Cancel
                     </Button>
-                </Col>
-            </Row>
+                
+            
         </Form>
 
     )
