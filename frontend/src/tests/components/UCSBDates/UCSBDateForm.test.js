@@ -12,7 +12,7 @@ jest.mock('react-router-dom', () => ({
 
 
 describe("UCSBDateForm tests", () => {
-
+    
     test("renders correctly", async () => {
 
         render(
@@ -24,7 +24,7 @@ describe("UCSBDateForm tests", () => {
         await screen.findByText(/Create/);
     });
 
-
+    
     test("renders correctly when passing in a UCSBDate", async () => {
 
         render(
