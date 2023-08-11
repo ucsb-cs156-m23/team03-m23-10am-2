@@ -1,6 +1,6 @@
 import { Button, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Create" }) {
 
@@ -25,7 +25,8 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
    // const itemId_regex = /[\d]+/; // Accepts from 1900-2099 followed by 1-4.  Close enough.
     const itemId_regex = /\d+/;
     const stars_regex= /[1|2|3|4|5]/;
-    const email_regex = /\S+@\S+\.\S+/;
+    const email_regex = /\S@\S+\.\S/;
+
 
     return (
 
