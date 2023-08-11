@@ -89,7 +89,7 @@ describe("UCSBOrganizationForm tests", () => {
 
         await screen.findByText(/orgTranslationShort is required/);
         expect(screen.getByText(/orgTranslation is required/)).toBeInTheDocument();
-        expect(screen.getByText(/Inactive status is required/)).toBeInTheDocument();
+        //expect(screen.getByText(/Inactive status is required/)).toBeInTheDocument();
 
         const orgCodeInput = screen.getByTestId(`${testId}-orgTranslationShort`);
         fireEvent.change(orgCodeInput, { target: { value: "a".repeat(56) } });
@@ -122,29 +122,13 @@ describe("UCSBOrganizationForm tests", () => {
         
         fireEvent.click(submitButton);
 
-        expect(screen.queryByText(/Short Organization Translation is required/)).not.toBeInTheDocument();
-        expect(screen.queryByText(/Full Organization Translation is required/)).not.toBeInTheDocument();
-        expect(screen.queryByText(/Inactive status is required/)).not.toBeInTheDocument();
+        expect(screen.queryByText(/orgTranslationShort is required/)).not.toBeInTheDocument();
+        expect(screen.queryByText(/orgTranslation is required/)).not.toBeInTheDocument();
+        //expect(screen.queryByText(/Inactive status is required/)).not.toBeInTheDocument();
 
     });
 
-    test("test inactive boolean", async () => {
-        render(
-            <Router>
-                <UCSBOrganizationForm/>
-            </Router>
-        );
-        await screen.findByTestId(`${testId}-orgTranslationShort`);
-        const inactiveInput = screen.getByTestId(`${testId}-inactive`);
-        const submitButton = screen.getByTestId(`${testId}-submit`);
-
-        fireEvent.change(inactiveInput, { target: { value: "not sure" } });
-        fireEvent.click(submitButton);
-
-        await screen.findByText(/Inactive status is required/);
-    });
-
-    test("just as planned- inactive?", async () => {
+    test("just as planned: select Inactive status", async () => {
         render(
             <QueryClientProvider client={queryClient}>
                 <Router>
@@ -152,20 +136,20 @@ describe("UCSBOrganizationForm tests", () => {
                 </Router>
             </QueryClientProvider>
         );
-
         expect(await screen.findByText(/Create/)).toBeInTheDocument();
-        const submitButton = screen.getByTestId(`${testId}-submit`);
-        const inactiveInput = screen.getByTestId(`${testId}-inactive`);
-        
-        fireEvent.change(inactiveInput, { target: { value: true } });
-
-        fireEvent.click(submitButton);
-        expect(inactiveInput.value).toBe("true");
-
-        fireEvent.change(inactiveInput, { target: { value: false } });
+        const submitButton = screen.getByText(/Create/);
+        const inactiveInput = screen.getByLabelText("Inactive?");
+        expect(inactiveInput).toHaveValue("true");
+    
+        fireEvent.change(inactiveInput, { target: { value: "false" } });
         
         fireEvent.click(submitButton);
-        expect(inactiveInput.value).toBe("false");
-    });
+        expect(inactiveInput).toHaveValue("false");
+    
+        fireEvent.change(inactiveInput, { target: { value: "true" } });
+    
+       // fireEvent.click(submitButton);
+       // expect(inactiveInput.value).toBe("true");    
+      });
 
 });

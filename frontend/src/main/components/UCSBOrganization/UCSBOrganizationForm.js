@@ -22,19 +22,18 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
     return (
         <Form onSubmit={handleSubmit(submitAction)}>
            
-           {initialContents && (
-                <Form.Group className="mb-3">
-                    <Form.Label htmlFor="orgCode">OrganizationCode</Form.Label>
+           <Form.Group className="mb-3" >
+                    <Form.Label htmlFor="id">OrganizationCode</Form.Label>
                     <Form.Control
                         data-testid={testIdPrefix + "-orgCode"}
                         id="orgCode"
                         type="text"
-                        {...register("orgCode")}
-                        value={initialContents.id}
-                        disabled
+                        {...register("orgCode" , {
+                            required: "orgCode is required."
+                        })}
+
                     />
-                </Form.Group>
-            )}
+            </Form.Group>
             
 
             <Form.Group className="mb-3" >
@@ -73,24 +72,18 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                 </Form.Control.Feedback>
             </Form.Group>
 
-            <Form.Group className="mb-3" >
+            <Form.Group className="mb-3">
                 <Form.Label htmlFor="inactive">Inactive?</Form.Label>
                 <Form.Control
-                    data-testid={testIdPrefix + "-inactive"}
-                    id="inactive"
-                    type="checkbox"
-                    isInvalid={Boolean(errors.description)}
-                    {...register("inactive", {
-                        required: "Inactive status is required."
-                    })}
-                />
-                <option value="true">true</option>
+                data-testid={testIdPrefix + "-inactive"}
+                id="inactive"
+                as="select"
+                {...register("inactive", )}
+                >
+                <option value="true" selected>true</option>
                 <option value="false">false</option>
-                <Form.Control.Feedback type="inactive">
-                    {errors.inactive?.message}
-                </Form.Control.Feedback>
+                </Form.Control>
             </Form.Group>
-
 
             <Button
                 type="submit"
