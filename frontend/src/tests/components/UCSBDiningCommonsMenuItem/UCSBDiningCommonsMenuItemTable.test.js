@@ -5,10 +5,6 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
 
-//TODO test from Table.js
-import axios from "axios";
-import AxiosMockAdapter from "axios-mock-adapter";
-
 const mockedNavigate = jest.fn();
 
 jest.mock('react-router-dom', () => ({
@@ -17,6 +13,7 @@ jest.mock('react-router-dom', () => ({
 }));
 
 describe("UCSBDiningCommonsMenuItemTable tests", () => {
+
   const queryClient = new QueryClient();
 
   const expectedHeaders = ["id", "Dining Commons", "Name", "Station"];
@@ -179,4 +176,6 @@ describe("UCSBDiningCommonsMenuItemTable tests", () => {
     // act - click the delete button
     fireEvent.click(deleteButton);
   });
+  
+
 });
