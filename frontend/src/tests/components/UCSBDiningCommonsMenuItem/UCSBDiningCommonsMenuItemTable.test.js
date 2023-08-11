@@ -5,6 +5,9 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
 
+//TODO test from Table.js
+import axios from "axios";
+import AxiosMockAdapter from "axios-mock-adapter";
 
 const mockedNavigate = jest.fn();
 
