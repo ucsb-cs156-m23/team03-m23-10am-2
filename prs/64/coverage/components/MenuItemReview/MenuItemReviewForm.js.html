@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>0/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/13</span>
+                <span class='fraction'>0/7</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>0/8</span>
             </div>
         
             
@@ -216,7 +216,23 @@
 <a name='L151'></a><a href='#L151'>151</a>
 <a name='L152'></a><a href='#L152'>152</a>
 <a name='L153'></a><a href='#L153'>153</a>
-<a name='L154'></a><a href='#L154'>154</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L154'></a><a href='#L154'>154</a>
+<a name='L155'></a><a href='#L155'>155</a>
+<a name='L156'></a><a href='#L156'>156</a>
+<a name='L157'></a><a href='#L157'>157</a>
+<a name='L158'></a><a href='#L158'>158</a>
+<a name='L159'></a><a href='#L159'>159</a>
+<a name='L160'></a><a href='#L160'>160</a>
+<a name='L161'></a><a href='#L161'>161</a>
+<a name='L162'></a><a href='#L162'>162</a>
+<a name='L163'></a><a href='#L163'>163</a>
+<a name='L164'></a><a href='#L164'>164</a>
+<a name='L165'></a><a href='#L165'>165</a>
+<a name='L166'></a><a href='#L166'>166</a>
+<a name='L167'></a><a href='#L167'>167</a>
+<a name='L168'></a><a href='#L168'>168</a>
+<a name='L169'></a><a href='#L169'>169</a>
+<a name='L170'></a><a href='#L170'>170</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -242,6 +258,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -357,8 +375,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -392,20 +424,22 @@ function <span class="fstat-no" title="function not covered" >MenuItemReviewForm
 &nbsp;
     // Stryker disable next-line Regex
     const isodate_regex = <span class="cstat-no" title="statement not covered" >/(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;</span>
-&nbsp;
     // Stryker disable next-line all
-    const itemId_regex = <span class="cstat-no" title="statement not covered" >/[\d]+/;</span> // Accepts from 1900-2099 followed by 1-4.  Close enough.
+   // const itemId_regex = /[\d]+/; // Accepts from 1900-2099 followed by 1-4.  Close enough.
+    const itemId_regex = <span class="cstat-no" title="statement not covered" >/\d+/;</span>
+    const stars_regex= <span class="cstat-no" title="statement not covered" >/[1|2|3|4|5]/;</span>
+    const email_regex = <span class="cstat-no" title="statement not covered" >/\S+@\S+\.\S+/;</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return (</span>
 &nbsp;
         &lt;Form onSubmit={handleSubmit(submitAction)}&gt;
 &nbsp;
                 {initialContents &amp;&amp; (
-                    
+&nbsp;
                         &lt;Form.Group className="mb-3" &gt;
                             &lt;Form.Label htmlFor="id"&gt;Id&lt;/Form.Label&gt;
                             &lt;Form.Control
-                                data-testid="MenuItemReview-id"
+                                data-testid="MenuItemReviewForm-id"
                                 id="id"
                                 type="text"
                                 {...register("id")}
@@ -413,10 +447,10 @@ function <span class="fstat-no" title="function not covered" >MenuItemReviewForm
                                 disabled
                             /&gt;
                         &lt;/Form.Group&gt;
-                    
+&nbsp;
                 )}
 &nbsp;
-                
+&nbsp;
                     &lt;Form.Group className="mb-3" &gt;
                         &lt;Form.Label htmlFor="itemId"&gt;item ID&lt;/Form.Label&gt;
                         &lt;Form.Control
@@ -424,15 +458,21 @@ function <span class="fstat-no" title="function not covered" >MenuItemReviewForm
                             id="itemId"
                             type="text"
                             isInvalid={Boolean(errors.itemId)}
-                            {...register("itemId", { required: true, pattern: itemId_regex })}
-                        /&gt;
-                        &lt;Form.Control.Feedback type="invalid"&gt;
-                            {errors.itemId &amp;&amp; 'ItemId is required. '}
-                            {errors.itemId?.type === 'pattern' &amp;&amp; 'ItemId must be in the format of a number, e.g. 1,2,3..'}
+                            {...register("itemId", {
+                                required: "Item Id is required.",
+                                pattern: {
+                                    value: itemId_regex,
+                                    message: "Item Id must be a number"
+                                },
+                            })}
+                         /&gt;
+                         &lt;Form.Control.Feedback type="invalid"&gt;
+                            {errors.itemId?.message}
                         &lt;/Form.Control.Feedback&gt;
                     &lt;/Form.Group&gt;
-                
-                
+&nbsp;
+&nbsp;
+&nbsp;
                     &lt;Form.Group className="mb-3" &gt;
                         &lt;Form.Label htmlFor="reviewerEmail"&gt;Reviewer Email&lt;/Form.Label&gt;
                         &lt;Form.Control
@@ -441,14 +481,18 @@ function <span class="fstat-no" title="function not covered" >MenuItemReviewForm
                             type="text"
                             isInvalid={Boolean(errors.reviewerEmail)}
                             {...register("reviewerEmail", {
-                                required: "Reviewer Email is required."
+                                required: "Reviewer Email is required.",
+                                pattern: {
+                                    value: email_regex,
+                                    message: "Reviewer Email must be valid "
+                                },
                             })}
                         /&gt;
-                        &lt;Form.Control.Feedback type="invalid"&gt;
-                            {errors.reviewerEmail &amp;&amp; 'Reviewer Email is required.'}
+                         &lt;Form.Control.Feedback type="invalid"&gt;
+                            {errors.reviewerEmail?.message}
                         &lt;/Form.Control.Feedback&gt;
                     &lt;/Form.Group&gt;
-                
+&nbsp;
 &nbsp;
                     &lt;Form.Group className="mb-3" &gt;
                         &lt;Form.Label htmlFor="stars"&gt;Stars&lt;/Form.Label&gt;
@@ -458,14 +502,34 @@ function <span class="fstat-no" title="function not covered" >MenuItemReviewForm
                             type="text"
                             isInvalid={Boolean(errors.stars)}
                             {...register("stars", {
-                                required: "Stars is required."
-                            })}
+                        required: "Stars are required.",
+                        pattern: {
+                            value: stars_regex,
+                            message: "between 1 and 5"
+                            },
+                        })}
                         /&gt;
                         &lt;Form.Control.Feedback type="invalid"&gt;
                             {errors.stars?.message}
                         &lt;/Form.Control.Feedback&gt;
                     &lt;/Form.Group&gt;
-                
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+                &lt;Form.Group className="mb-3" &gt;
+                        &lt;Form.Label htmlFor="dateReviewed"&gt;Date Reviewed&lt;/Form.Label&gt;
+                        &lt;Form.Control
+                            data-testid="MenuItemReviewForm-dateReviewed"
+                            id="dateReviewed"
+                            type="datetime-local"
+                            isInvalid={Boolean(errors.dateReviewed)}
+                            {...register("dateReviewed", { required: true, pattern: isodate_regex })}
+                        /&gt;
+                        &lt;Form.Control.Feedback type="invalid"&gt;
+                            {errors.dateReviewed &amp;&amp; 'datereviewed is required. '}
+                        &lt;/Form.Control.Feedback&gt;
+                    &lt;/Form.Group&gt;
 &nbsp;
 &nbsp;
                     &lt;Form.Group className="mb-3" &gt;
@@ -483,25 +547,10 @@ function <span class="fstat-no" title="function not covered" >MenuItemReviewForm
                             {errors.comments?.message}
                         &lt;/Form.Control.Feedback&gt;
                     &lt;/Form.Group&gt;
-                
-            
 &nbsp;
-                
-                &lt;Form.Group className="mb-3" &gt;
-                        &lt;Form.Label htmlFor="dateReviewed"&gt;Date Reviewed)&lt;/Form.Label&gt;
-                        &lt;Form.Control
-                            data-testid="MenuItemReviewForm-dateReviewed"
-                            id="dateReviewed"
-                            type="datetime-local"
-                            isInvalid={Boolean(errors.dateReviewed)}
-                            {...register("dateReviewed", { required: true, pattern: isodate_regex })}
-                        /&gt;
-                        &lt;Form.Control.Feedback type="invalid"&gt;
-                            {errors.dateReviewed &amp;&amp; 'datereviewed is required. '}
-                        &lt;/Form.Control.Feedback&gt;
-                    &lt;/Form.Group&gt;
- 
-                
+&nbsp;
+&nbsp;
+&nbsp;
                     &lt;Button
                         type="submit"
                         data-testid="MenuItemReviewForm-submit"
@@ -515,21 +564,20 @@ function <span class="fstat-no" title="function not covered" >MenuItemReviewForm
                     &gt;
                         Cancel
                     &lt;/Button&gt;    
-            
+&nbsp;
         &lt;/Form&gt;
 &nbsp;
     )
 }
 &nbsp;
-export default MenuItemReviewForm;
-&nbsp;</pre></td></tr></table></pre>
+export default MenuItemReviewForm;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Thu Aug 10 2023 16:54:17 GMT-0700 (Pacific Daylight Time)
+                at Thu Aug 10 2023 18:26:33 GMT-0700 (Pacific Daylight Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
