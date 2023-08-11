@@ -117,7 +117,7 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                         <Form.Control
                             data-testid="RecommendationRequestForm-dateRequested"
                             id="dateRequested"
-                            type="datetime"
+                            type="datetime-local"
                             isInvalid={Boolean(errors.dateRequested)}
                             {...register("dateRequested", { required: true, pattern: isodate_regex })}
                         />
@@ -133,7 +133,7 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                         <Form.Control
                             data-testid="RecommendationRequestForm-dateNeeded"
                             id="dateNeeded"
-                            type="datetime"
+                            type="datetime-local"
                             isInvalid={Boolean(errors.dateNeeded)}
                             {...register("dateNeeded", { required: true, pattern: isodate_regex })}
                         />
@@ -146,7 +146,7 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                 <Col>
                     <Form.Group className="mb-3" >
                         <Form.Label htmlFor="done">Done</Form.Label>
-                        <Form.Control
+                        <Form.Check
                             data-testid="RecommendationRequestForm-done"
                             id="done"
                             type="checkbox"
