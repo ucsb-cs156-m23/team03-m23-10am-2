@@ -21,20 +21,22 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
 
     // Stryker disable next-line Regex
     const isodate_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
-
     // Stryker disable next-line all
-    const itemId_regex = /[\d]+/; // Accepts from 1900-2099 followed by 1-4.  Close enough.
+   // const itemId_regex = /[\d]+/; // Accepts from 1900-2099 followed by 1-4.  Close enough.
+    const itemId_regex = /\d+/;
+    const stars_regex= /[1|2|3|4|5]/;
+    const email_regex = /\S+@\S+\.\S+/;
 
     return (
 
         <Form onSubmit={handleSubmit(submitAction)}>
 
                 {initialContents && (
-                    
+
                         <Form.Group className="mb-3" >
                             <Form.Label htmlFor="id">Id</Form.Label>
                             <Form.Control
-                                data-testid="MenuItemReview-id"
+                                data-testid="MenuItemReviewForm-id"
                                 id="id"
                                 type="text"
                                 {...register("id")}
@@ -42,10 +44,10 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                                 disabled
                             />
                         </Form.Group>
-                    
+
                 )}
 
-                
+
                     <Form.Group className="mb-3" >
                         <Form.Label htmlFor="itemId">item ID</Form.Label>
                         <Form.Control
@@ -53,15 +55,21 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             id="itemId"
                             type="text"
                             isInvalid={Boolean(errors.itemId)}
-                            {...register("itemId", { required: true, pattern: itemId_regex })}
-                        />
-                        <Form.Control.Feedback type="invalid">
-                            {errors.itemId && 'ItemId is required. '}
-                            {errors.itemId?.type === 'pattern' && 'ItemId must be in the format of a number, e.g. 1,2,3..'}
+                            {...register("itemId", {
+                                required: "Item Id is required.",
+                                pattern: {
+                                    value: itemId_regex,
+                                    message: "Item Id must be a number"
+                                },
+                            })}
+                         />
+                         <Form.Control.Feedback type="invalid">
+                            {errors.itemId?.message}
                         </Form.Control.Feedback>
                     </Form.Group>
-                
-                
+
+
+
                     <Form.Group className="mb-3" >
                         <Form.Label htmlFor="reviewerEmail">Reviewer Email</Form.Label>
                         <Form.Control
@@ -70,14 +78,18 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             type="text"
                             isInvalid={Boolean(errors.reviewerEmail)}
                             {...register("reviewerEmail", {
-                                required: "Reviewer Email is required."
+                                required: "Reviewer Email is required.",
+                                pattern: {
+                                    value: email_regex,
+                                    message: "Reviewer Email must be valid "
+                                },
                             })}
                         />
-                        <Form.Control.Feedback type="invalid">
-                            {errors.reviewerEmail && 'Reviewer Email is required.'}
+                         <Form.Control.Feedback type="invalid">
+                            {errors.reviewerEmail?.message}
                         </Form.Control.Feedback>
                     </Form.Group>
-                
+
 
                     <Form.Group className="mb-3" >
                         <Form.Label htmlFor="stars">Stars</Form.Label>
@@ -87,14 +99,34 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             type="text"
                             isInvalid={Boolean(errors.stars)}
                             {...register("stars", {
-                                required: "Stars is required."
-                            })}
+                        required: "Stars are required.",
+                        pattern: {
+                            value: stars_regex,
+                            message: "between 1 and 5"
+                            },
+                        })}
                         />
                         <Form.Control.Feedback type="invalid">
                             {errors.stars?.message}
                         </Form.Control.Feedback>
                     </Form.Group>
-                
+
+
+
+
+                <Form.Group className="mb-3" >
+                        <Form.Label htmlFor="dateReviewed">Date Reviewed</Form.Label>
+                        <Form.Control
+                            data-testid="MenuItemReviewForm-dateReviewed"
+                            id="dateReviewed"
+                            type="datetime-local"
+                            isInvalid={Boolean(errors.dateReviewed)}
+                            {...register("dateReviewed", { required: true, pattern: isodate_regex })}
+                        />
+                        <Form.Control.Feedback type="invalid">
+                            {errors.dateReviewed && 'datereviewed is required. '}
+                        </Form.Control.Feedback>
+                    </Form.Group>
 
 
                     <Form.Group className="mb-3" >
@@ -112,25 +144,10 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             {errors.comments?.message}
                         </Form.Control.Feedback>
                     </Form.Group>
-                
-            
 
-                
-                <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="dateReviewed">Date Reviewed)</Form.Label>
-                        <Form.Control
-                            data-testid="MenuItemReviewForm-dateReviewed"
-                            id="dateReviewed"
-                            type="datetime-local"
-                            isInvalid={Boolean(errors.dateReviewed)}
-                            {...register("dateReviewed", { required: true, pattern: isodate_regex })}
-                        />
-                        <Form.Control.Feedback type="invalid">
-                            {errors.dateReviewed && 'datereviewed is required. '}
-                        </Form.Control.Feedback>
-                    </Form.Group>
- 
-                
+
+
+
                     <Button
                         type="submit"
                         data-testid="MenuItemReviewForm-submit"
@@ -144,7 +161,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                     >
                         Cancel
                     </Button>    
-            
+
         </Form>
 
     )
