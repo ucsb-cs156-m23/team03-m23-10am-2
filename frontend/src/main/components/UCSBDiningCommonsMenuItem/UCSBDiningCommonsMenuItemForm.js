@@ -42,7 +42,7 @@ function UCSBDiningCommonsMenuItemForm({ initialContents, submitAction, buttonLa
                     data-testid={testIdPrefix + "-diningCommonsCode"}
                     id="diningCommonsCode"
                     type="text"
-                    isInvalid={Boolean(errors.name)}
+                    isInvalid={Boolean(errors.diningCommonsCode)}
                     {...register("diningCommonsCode", {
                         required: "Dining Common is required.",
                         maxLength : {
