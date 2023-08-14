@@ -45,7 +45,7 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                     type="text"
                     isInvalid={Boolean(errors.orgTranslationShort)}
                     {...register("orgTranslationShort", {
-                        required: "orgTranslationShort is required.",
+                        required: "Shorthand Title is required.",
                         maxLength : {
                             value: 55,
                             message: "Max length 55 characters"
@@ -69,7 +69,7 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                     type="text"
                     isInvalid={Boolean(errors.description)}
                     {...register("orgTranslation", {
-                        required: "orgTranslation is required."
+                        required: "Full Title is required."
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
