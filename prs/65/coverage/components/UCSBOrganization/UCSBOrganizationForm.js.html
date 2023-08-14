@@ -169,7 +169,21 @@
 <a name='L104'></a><a href='#L104'>104</a>
 <a name='L105'></a><a href='#L105'>105</a>
 <a name='L106'></a><a href='#L106'>106</a>
-<a name='L107'></a><a href='#L107'>107</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a>
+<a name='L121'></a><a href='#L121'>121</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -191,6 +205,19 @@
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -275,7 +302,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Button, Form } from 'react-bootstrap';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Button, Form, Row, Col } from 'react-bootstrap';
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
 &nbsp;
@@ -298,8 +326,9 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
 &nbsp;
     return (
         &lt;Form onSubmit={handleSubmit(submitAction)}&gt;
-           
-           &lt;Form.Group className="mb-3" &gt;
+            &lt;Row&gt;
+                &lt;Col&gt;
+                    &lt;Form.Group className="mb-3" &gt;
                     &lt;Form.Label htmlFor="id"&gt;OrganizationCode&lt;/Form.Label&gt;
                     &lt;Form.Control
                         data-testid={testIdPrefix + "-orgCode"}
@@ -310,10 +339,10 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                         })}
 &nbsp;
                     /&gt;
-            &lt;/Form.Group&gt;
-            
-&nbsp;
-            &lt;Form.Group className="mb-3" &gt;
+                &lt;/Form.Group&gt;
+            &lt;/Col&gt;
+            &lt;Col&gt;
+                &lt;Form.Group className="mb-3" &gt;
                 &lt;Form.Label htmlFor="orgTranslationShort"&gt;Shorthand Title&lt;/Form.Label&gt;
                 &lt;Form.Control
                     data-testid={testIdPrefix + "-orgTranslationShort"}
@@ -327,12 +356,16 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                             message: "Max length 55 characters"
                         }
                     })}
-                /&gt;
-                &lt;Form.Control.Feedback type="invalid"&gt;
-                    {errors.orgTranslationShort?.message}
-                &lt;/Form.Control.Feedback&gt;
-            &lt;/Form.Group&gt;
-&nbsp;
+                    /&gt;
+                    &lt;Form.Control.Feedback type="invalid"&gt;
+                        {errors.orgTranslationShort?.message}
+                    &lt;/Form.Control.Feedback&gt;
+                &lt;/Form.Group&gt;
+            &lt;/Col&gt;
+            &lt;/Row&gt;
+            
+            &lt;Row&gt;
+                &lt;Col&gt;
             &lt;Form.Group className="mb-3" &gt;
                 &lt;Form.Label htmlFor="orgTranslation"&gt;Full Title&lt;/Form.Label&gt;
                 &lt;Form.Control
@@ -348,7 +381,11 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                     {errors.orgTranslation?.message}
                 &lt;/Form.Control.Feedback&gt;
             &lt;/Form.Group&gt;
+            &lt;/Col&gt;
+            &lt;/Row&gt;
 &nbsp;
+            &lt;Row&gt;
+                &lt;Col&gt;
             &lt;Form.Group className="mb-3"&gt;
                 &lt;Form.Label htmlFor="inactive"&gt;Inactive?&lt;/Form.Label&gt;
                 &lt;Form.Control
@@ -361,7 +398,11 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                 &lt;option value="false"&gt;false&lt;/option&gt;
                 &lt;/Form.Control&gt;
             &lt;/Form.Group&gt;
-&nbsp;
+            &lt;/Col&gt;
+            &lt;/Row&gt;
+            
+            &lt;Row&gt;
+                &lt;Col&gt;
             &lt;Button
                 type="submit"
                 data-testid={testIdPrefix + "-submit"}
@@ -375,7 +416,8 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
             &gt;
                 Cancel
             &lt;/Button&gt;
-&nbsp;
+            &lt;/Col&gt;
+            &lt;/Row&gt;
         &lt;/Form&gt;
 &nbsp;
     )
@@ -388,7 +430,7 @@ export default UCSBOrganizationForm;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Thu Aug 10 2023 23:42:25 GMT-0700 (Pacific Daylight Time)
+                at Sun Aug 13 2023 20:27:01 GMT-0700 (Pacific Daylight Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
