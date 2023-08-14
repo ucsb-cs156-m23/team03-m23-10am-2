@@ -70,7 +70,6 @@ export default function RecommendationRequestTable({ requests, currentUser }) {
 
     return <OurTable
         data={requests}
-        // display all columns with Done as a string
         columns={ columns }
         testid={"RecommendationRequestTable"}
     />;

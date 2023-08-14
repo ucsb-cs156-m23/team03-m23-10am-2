@@ -83,6 +83,16 @@ describe("UserTable tests", () => {
 
     expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
+    // check every field for the first row
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-requesterEmail`)).toHaveTextContent("student1@ucsb.edu");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-professorEmail`)).toHaveTextContent("prof1@ucsb.edu");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-explanation`)).toHaveTextContent("another_explanation");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-dateRequested`)).toHaveTextContent("2023-12-01T13:13:00");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-dateNeeded`)).toHaveTextContent("2023-12-01T13:27:00");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-done`)).toHaveTextContent("false");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-done`)).toHaveTextContent("true");
+
+
 
     const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).toBeInTheDocument();
