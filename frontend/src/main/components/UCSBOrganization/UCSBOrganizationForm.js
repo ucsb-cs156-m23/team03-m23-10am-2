@@ -1,4 +1,4 @@
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Row, Col } from 'react-bootstrap';
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
 
@@ -21,8 +21,9 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
 
     return (
         <Form onSubmit={handleSubmit(submitAction)}>
-           
-           <Form.Group className="mb-3" >
+            <Row>
+                <Col>
+                    <Form.Group className="mb-3" >
                     <Form.Label htmlFor="id">OrganizationCode</Form.Label>
                     <Form.Control
                         data-testid={testIdPrefix + "-orgCode"}
@@ -33,10 +34,10 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                         })}
 
                     />
-            </Form.Group>
-            
-
-            <Form.Group className="mb-3" >
+                </Form.Group>
+            </Col>
+            <Col>
+                <Form.Group className="mb-3" >
                 <Form.Label htmlFor="orgTranslationShort">Shorthand Title</Form.Label>
                 <Form.Control
                     data-testid={testIdPrefix + "-orgTranslationShort"}
@@ -50,12 +51,16 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                             message: "Max length 55 characters"
                         }
                     })}
-                />
-                <Form.Control.Feedback type="invalid">
-                    {errors.orgTranslationShort?.message}
-                </Form.Control.Feedback>
-            </Form.Group>
-
+                    />
+                    <Form.Control.Feedback type="invalid">
+                        {errors.orgTranslationShort?.message}
+                    </Form.Control.Feedback>
+                </Form.Group>
+            </Col>
+            </Row>
+            
+            <Row>
+                <Col>
             <Form.Group className="mb-3" >
                 <Form.Label htmlFor="orgTranslation">Full Title</Form.Label>
                 <Form.Control
@@ -71,7 +76,11 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                     {errors.orgTranslation?.message}
                 </Form.Control.Feedback>
             </Form.Group>
+            </Col>
+            </Row>
 
+            <Row>
+                <Col>
             <Form.Group className="mb-3">
                 <Form.Label htmlFor="inactive">Inactive?</Form.Label>
                 <Form.Control
@@ -84,7 +93,11 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                 <option value="false">false</option>
                 </Form.Control>
             </Form.Group>
-
+            </Col>
+            </Row>
+            
+            <Row>
+                <Col>
             <Button
                 type="submit"
                 data-testid={testIdPrefix + "-submit"}
@@ -98,7 +111,8 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
             >
                 Cancel
             </Button>
-
+            </Col>
+            </Row>
         </Form>
 
     )
