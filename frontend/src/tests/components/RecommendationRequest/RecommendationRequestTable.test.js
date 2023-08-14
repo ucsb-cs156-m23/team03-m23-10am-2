@@ -83,7 +83,6 @@ describe("UserTable tests", () => {
 
     expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
-    // check every field for the first row
     expect(screen.getByTestId(`${testId}-cell-row-0-col-requesterEmail`)).toHaveTextContent("student1@ucsb.edu");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-professorEmail`)).toHaveTextContent("prof1@ucsb.edu");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-explanation`)).toHaveTextContent("another_explanation");
@@ -91,8 +90,6 @@ describe("UserTable tests", () => {
     expect(screen.getByTestId(`${testId}-cell-row-0-col-dateNeeded`)).toHaveTextContent("2023-12-01T13:27:00");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-done`)).toHaveTextContent("false");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-done`)).toHaveTextContent("true");
-
-
 
     const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).toBeInTheDocument();
@@ -102,6 +99,29 @@ describe("UserTable tests", () => {
     expect(deleteButton).toBeInTheDocument();
     expect(deleteButton).toHaveClass("btn-danger");
 
+  });
+
+  test("Delete button calls delete callback", async () => {
+    // arrange
+    const currentUser = currentUserFixtures.adminUser;
+
+    // act - render the component
+    render(
+        <QueryClientProvider client={queryClient}>
+          <MemoryRouter>
+            <RecommendationRequestTable requests={recommendationRequestFixtures.threeRequests} currentUser={currentUser} />
+          </MemoryRouter>
+        </QueryClientProvider>
+      );
+
+    // assert - check that the expected content is rendered
+    await waitFor(() => { expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-id`)).toHaveTextContent("1"); });
+
+    const deleteButton = screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-Delete-button`);
+    expect(deleteButton).toBeInTheDocument();
+
+    // act - click the delete button
+    fireEvent.click(deleteButton);
   });
 
   test("Edit button navigates to the edit page for admin user", async () => {
