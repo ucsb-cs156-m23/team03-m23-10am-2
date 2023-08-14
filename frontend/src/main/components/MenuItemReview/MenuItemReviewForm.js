@@ -1,4 +1,4 @@
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Row, Col} from 'react-bootstrap';
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
 
@@ -32,7 +32,11 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
 
         <Form onSubmit={handleSubmit(submitAction)}>
 
+            <Row>
+
+
                 {initialContents && (
+                    <Col>
 
                         <Form.Group className="mb-3" >
                             <Form.Label htmlFor="id">Id</Form.Label>
@@ -45,10 +49,12 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                                 disabled
                             />
                         </Form.Group>
+                        </Col>
 
                 )}
 
 
+<Col>
                     <Form.Group className="mb-3" >
                         <Form.Label htmlFor="itemId">item ID</Form.Label>
                         <Form.Control
@@ -69,7 +75,8 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                         </Form.Control.Feedback>
                     </Form.Group>
 
-
+                    </Col>
+                    <Col>
 
                     <Form.Group className="mb-3" >
                         <Form.Label htmlFor="reviewerEmail">Reviewer Email</Form.Label>
@@ -90,7 +97,11 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             {errors.reviewerEmail?.message}
                         </Form.Control.Feedback>
                     </Form.Group>
+                    </Col>
+                    </Row>
 
+                    <Row>
+                    <Col>
 
                     <Form.Group className="mb-3" >
                         <Form.Label htmlFor="stars">Stars</Form.Label>
@@ -111,8 +122,10 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             {errors.stars?.message}
                         </Form.Control.Feedback>
                     </Form.Group>
+                    </Col>
 
 
+                    <Col>
 
 
                 <Form.Group className="mb-3" >
@@ -128,7 +141,11 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             {errors.dateReviewed && 'datereviewed is required. '}
                         </Form.Control.Feedback>
                     </Form.Group>
+                    </Col>
+                    </Row>
 
+                    <Row>
+                    <Col>
 
                     <Form.Group className="mb-3" >
                         <Form.Label htmlFor="comments">Comments</Form.Label>
@@ -145,8 +162,12 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             {errors.comments?.message}
                         </Form.Control.Feedback>
                     </Form.Group>
+                    </Col>
+                    </Row>
 
 
+                    <Row>
+                    <Col>
 
 
                     <Button
@@ -161,7 +182,9 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                         data-testid="MenuItemReviewForm-cancel"
                     >
                         Cancel
-                    </Button>    
+                    </Button>  
+                    </Col>
+                    </Row>  
 
         </Form>
 
