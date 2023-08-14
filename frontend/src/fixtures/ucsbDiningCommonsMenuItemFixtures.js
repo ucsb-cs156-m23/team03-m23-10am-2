@@ -30,7 +30,9 @@ const ucsbDiningCommonsMenuItemFixtures = {
             "diningCommonsCode": "portola", 
             "name": "sushi",
             "station": "Order"   
-        },
+
+        }
+
         
     ]
 };
