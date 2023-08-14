@@ -24,16 +24,19 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
             <Row>
                 <Col>
                     <Form.Group className="mb-3" >
-                    <Form.Label htmlFor="id">OrganizationCode</Form.Label>
+                    <Form.Label htmlFor="orgCode">OrganizationCode</Form.Label>
                     <Form.Control
                         data-testid={testIdPrefix + "-orgCode"}
                         id="orgCode"
                         type="text"
+                        isInvalid={Boolean(errors.orgCode)}
                         {...register("orgCode" , {
                             required: "orgCode is required."
                         })}
-
                     />
+                    <Form.Control.Feedback type="invalid">
+                        {errors.orgCode?.message}
+                    </Form.Control.Feedback>
                 </Form.Group>
             </Col>
             <Col>
@@ -67,7 +70,7 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                     data-testid={testIdPrefix + "-orgTranslation"}
                     id="orgTranslation"
                     type="text"
-                    isInvalid={Boolean(errors.description)}
+                    isInvalid={Boolean(errors.orgTranslation)}
                     {...register("orgTranslation", {
                         required: "Full Title is required."
                     })}
