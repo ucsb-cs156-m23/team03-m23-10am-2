@@ -87,8 +87,8 @@ describe("UCSBOrganizationForm tests", () => {
         const submitButton = screen.getByText(/Create/);
         fireEvent.click(submitButton);
 
-        await screen.findByText(/orgTranslationShort is required/);
-        expect(screen.getByText(/orgTranslation is required/)).toBeInTheDocument();
+        await screen.findByText(/Shorthand Title is required/);
+        expect(screen.getByText(/Full Title is required/)).toBeInTheDocument();
         //expect(screen.getByText(/Inactive status is required/)).toBeInTheDocument();
 
         const orgCodeInput = screen.getByTestId(`${testId}-orgTranslationShort`);
@@ -122,8 +122,8 @@ describe("UCSBOrganizationForm tests", () => {
         
         fireEvent.click(submitButton);
 
-        expect(screen.queryByText(/orgTranslationShort is required/)).not.toBeInTheDocument();
-        expect(screen.queryByText(/orgTranslation is required/)).not.toBeInTheDocument();
+        expect(screen.queryByText(/Shorthand Title is required/)).not.toBeInTheDocument();
+        expect(screen.queryByText(/Full Title is required/)).not.toBeInTheDocument();
         //expect(screen.queryByText(/Inactive status is required/)).not.toBeInTheDocument();
 
     });
