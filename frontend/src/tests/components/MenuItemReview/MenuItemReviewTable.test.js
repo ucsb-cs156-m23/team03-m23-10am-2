@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render,waitFor, screen } from "@testing-library/react";
 import { menuItemReviewFixtures } from "fixtures/menuItemReviewFixtures";
 import MenuItemReviewTable from "main/components/MenuItemReview/MenuItemReviewTable";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -136,27 +136,23 @@ describe("MenuItemReviewTable tests", () => {
     // arrange
     const currentUser = currentUserFixtures.adminUser;
 
-    // act - render the component
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <MenuItemReviewTable reviews={menuItemReviewFixtures.threeReviews} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
+
     );
 
-    // assert - check that the expected content is rendered
-    expect(await screen.findByTestId(`${testId}-cell-row-0-col-itemId`)).toHaveTextContent("3");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-reviewerEmail`)).toHaveTextContent("cyrus895@ucsb.edu");
+    await waitFor(() => { expect(screen.getByTestId(`MenuItemReviewTable-cell-row-0-col-itemId`)).toHaveTextContent("3"); });
 
-    const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
+    const editButton = screen.getByTestId(`MenuItemReviewTable-cell-row-0-col-Edit-button`);
     expect(editButton).toBeInTheDocument();
-
-    // act - click the edit button
+    
     fireEvent.click(editButton);
 
-    // assert - check that the navigate function was called with the expected path
-  //  await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/menuitemreview/edit/1'));
+    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/menuitemreview/edit/3'));
 
   });
 
@@ -173,10 +169,8 @@ describe("MenuItemReviewTable tests", () => {
       </QueryClientProvider>
     );
 
-    // assert - check that the expected content is rendered
-    expect(await screen.findByTestId(`${testId}-cell-row-0-col-itemId`)).toHaveTextContent("3");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-reviewerEmail`)).toHaveTextContent("cyrus895@ucsb.edu");
-
+    await waitFor(() => { expect(screen.getByTestId(`MenuItemReviewTable-cell-row-0-col-itemId`)).toHaveTextContent("3"); });
+    
     const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
     expect(deleteButton).toBeInTheDocument();
 
