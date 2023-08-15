@@ -1,7 +1,7 @@
 import React from 'react';
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
-import { RecommendationRequestFixtures, recommendationRequestFixtures } from "fixtures/recommendationRequestFixtures";
+import { recommendationRequestFixtures } from "fixtures/recommendationRequestFixtures";
 import { rest } from "msw";
 
 import RecommendationRequestEditPage from "main/pages/RecommendationRequest/RecommendationRequestEditPage";
