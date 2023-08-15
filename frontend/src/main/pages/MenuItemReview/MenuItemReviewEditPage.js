@@ -16,9 +16,9 @@ export default function MenuItemReviewEditPage({storybook=false}) {
                 method: "GET",
                 url: `/api/menuitemreview`,
                 params: {
-                    id
+                    id: id,
                 }
-            }
+            },
         );
 
     const objectToAxiosPutParams = (reviews) => ({
