@@ -8,9 +8,10 @@ import { hasRole } from "main/utils/currentUser";
 
 export default function UCSBDiningCommonsMenuItemTable({
     items,
-    currentUser,
-    testIdPrefix = "UCSBDiningCommonsMenuItemTable" }) {
+    currentUser
+    /*testIdPrefix = "UCSBDiningCommonsMenuItemTable"*/ }) {
 
+    const testIdPrefix = "UCSBDiningCommonsMenuItemTable";
     const navigate = useNavigate();
 
     const editCallback = (cell) => {
