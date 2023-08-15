@@ -2,7 +2,7 @@ const ucsbOrgFixtures = {
     oneOrg:
     [
       {
-       "id": 1,
+       //"id": 1,
        "orgCode": "ZPR",
        "orgTranslationShort": "ZETA PHI RHO",
        "orgTranslation": "ZETA PHI RHO",
@@ -13,7 +13,7 @@ const ucsbOrgFixtures = {
     threeOrgs:
     [
         {
-            "id": 1,
+            //"id": 1,
             "orgCode": "ZPR",
             "orgTranslationShort": "ZETA PHI RHO",
             "orgTranslation": "ZETA PHI RHO",
@@ -21,7 +21,7 @@ const ucsbOrgFixtures = {
         },
 
         {
-            "id": 2,
+            //"id": 2,
             "orgCode": "SKY",
             "orgTranslationShort": "SKYDIVING CLUB",
             "orgTranslation": "SKYDIVING CLUB AT UCSB",
@@ -29,7 +29,7 @@ const ucsbOrgFixtures = {
         },
 
         {
-            "id": 3,
+            //"id": 3,
             "orgCode": "5",
             "orgTranslationShort": "TASA",
             "orgTranslation": "TASA Club",
