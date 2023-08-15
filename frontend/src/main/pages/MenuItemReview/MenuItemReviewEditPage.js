@@ -25,7 +25,7 @@ export default function MenuItemReviewEditPage({storybook=false}) {
         url: "/api/menuitemreview",
         method: "PUT",
         params: {
-            id: reviews.itemId,
+            id: reviews.id,
         },
         data: {
           itemId: reviews.itemId,
