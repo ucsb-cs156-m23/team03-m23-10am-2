@@ -12,7 +12,7 @@ jest.mock('react-router-dom', () => ({
 
 
 describe("UCSBDateForm tests", () => {
-
+    
     test("renders correctly", async () => {
 
         render(
@@ -24,7 +24,7 @@ describe("UCSBDateForm tests", () => {
         await screen.findByText(/Create/);
     });
 
-
+    
     test("renders correctly when passing in a UCSBDate", async () => {
 
         render(
@@ -32,7 +32,7 @@ describe("UCSBDateForm tests", () => {
                 <UCSBDateForm initialContents={ucsbDatesFixtures.oneDate} />
             </Router>
         );
-        await screen.findByTestId(/UCSBDateForm-id/);
+        await screen.findByTestId(/UCSBDateForm-id/); //working w/ async import; make sure page completely renders before checking the rest of the components
         expect(screen.getByText(/Id/)).toBeInTheDocument();
         expect(screen.getByTestId(/UCSBDateForm-id/)).toHaveValue("1");
     });

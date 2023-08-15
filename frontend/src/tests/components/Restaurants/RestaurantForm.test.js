@@ -25,7 +25,7 @@ describe("RestaurantForm tests", () => {
                 <Router>
                     <RestaurantForm />
                 </Router>
-            </QueryClientProvider>
+            </QueryClientProvider> 
         );
 
         expect(await screen.findByText(/Create/)).toBeInTheDocument();
