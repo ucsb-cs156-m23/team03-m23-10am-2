@@ -49,8 +49,8 @@ export default function MenuItemReviewEditPage({storybook=false}) {
 
     const { isSuccess } = mutation
 
-    const onSubmit = async (data) => {
-        mutation.mutate(data);
+    const onSubmit = async (reviews) => {
+        mutation.mutate(reviews);
     }
 
     if (isSuccess && !storybook) {
