@@ -25,7 +25,7 @@ export default function MenuItemReviewEditPage({storybook=false}) {
         url: "/api/menuitemreview",
         method: "PUT",
         params: {
-            id: reviews.id,
+            id: reviews.itemId,
         },
         data: {
           itemId: reviews.itemId,
@@ -49,8 +49,8 @@ export default function MenuItemReviewEditPage({storybook=false}) {
 
     const { isSuccess } = mutation
 
-    const onSubmit = async (reviews) => {
-        mutation.mutate(reviews);
+    const onSubmit = async (data) => {
+        mutation.mutate(data);
     }
 
     if (isSuccess && !storybook) {
