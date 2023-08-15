@@ -57,9 +57,9 @@ describe("UCSBOrganizationIndexPage tests", () => {
         );
 
         await waitFor(() => {
-            expect(screen.getByText(/Create New UCSB Organization/)).toBeInTheDocument();
+            expect(screen.getByText(/Create UCSB Organization/)).toBeInTheDocument();
         });
-        const button = screen.getByText(/Create New UCSB Organization/);
+        const button = screen.getByText(/Create UCSB Organization/);
         expect(button).toHaveAttribute("href", "/ucsborganization/create");
         expect(button).toHaveAttribute("style", "float: right;");
     });
@@ -80,7 +80,7 @@ describe("UCSBOrganizationIndexPage tests", () => {
         expect(screen.getByTestId(`${testId}-cell-row-1-col-orgCode`)).toHaveTextContent("SKY");
         expect(screen.getByTestId(`${testId}-cell-row-2-col-orgCode`)).toHaveTextContent("5");
 
-        const createButton = screen.queryByText(/Create New UCSB Organization/);
+        const createButton = screen.queryByText("Create New UCSB Organization");
         expect(createButton).not.toBeInTheDocument();
 
         const short = screen.getByText("TASA");
